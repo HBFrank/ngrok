@@ -35,7 +35,10 @@ func LoadTLSConfig(crtPath string, keyPath string) (tlsConfig *tls.Config, err e
 		return
 	}
 
+	//fix Failed to read message: tls: client offered an unsupported, maximum protocol version of 300
+	// https://github.com/golang/go/issues/9364
 	tlsConfig = &tls.Config{
+		MinVersion:   tls.VersionSSL30,
 		Certificates: []tls.Certificate{cert},
 	}
 
