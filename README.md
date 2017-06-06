@@ -1,3 +1,16 @@
+### how to compile
+
+cd /opt/
+git clone https://github.com/ihacklog/ngrok.git
+dnf install -y go
+# or yum install -y go
+make release-server release-client
+cp ngrokd.service /usr/lib/systemd/system
+vim /usr/lib/systemd/system/ngrokd.service
+systemctl enable ngrokd
+systemctl start ngrokd
+systemctl status ngrokd
+
 [![Build
 status](https://travis-ci.org/inconshreveable/ngrok.svg)](https://travis-ci.org/inconshreveable/ngrok)
 
