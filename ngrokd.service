@@ -8,7 +8,7 @@ RestartSec=1min
 StandardOutput=null
 StandardError=null
 Environment=SYSTEMD_LOG_LEVEL=debug
-ExecStart=/opt/ngrok/bin/ngrokd -tlsKey /opt/ngrok/server.key -tlsCrt /opt/ngrok/server.crt -domain \'YOUR-TUNEL-DOMAIN\' -httpAddr \':80\' -httpsAddr \':443\' -log \'/var/log/ngrokd.log\'
+ExecStart=/opt/ngrok/bin/ngrokd -tlsKey /opt/ngrok/device.key -tlsCrt /opt/ngrok/device.crt -domain 'YOUR-TUNEL-DOMAIN' -httpAddr ':80' -httpsAddr ':443' -log '/var/log/ngrokd.log'
 ExecStop=/usr/bin/killall ngrokd
 [Install]
 WantedBy=multi-user.target
